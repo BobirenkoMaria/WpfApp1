@@ -6,19 +6,5 @@
         xmlns:local="clr-namespace:WpfApp1"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
-    <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="150*"/>
-            <ColumnDefinition Width="650*"/>
-        </Grid.ColumnDefinitions>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="62*"/>
-            <RowDefinition Height="163*"/>
-
-        </Grid.RowDefinitions>
-        <StackPanel Grid.Row="1">
-            <Button Content="1" Grid.Column="0" Grid.Row="0" Click="Button_Click"/>
-            <Button Content="2" Grid.Column="0" Grid.Row="1" Click="Button_Click_1"/>
-        </StackPanel>
-    </Grid>
+    <Frame Name="MainFrame" Background="White" NavigationUIVisibility="Hidden"/>
 </Window>

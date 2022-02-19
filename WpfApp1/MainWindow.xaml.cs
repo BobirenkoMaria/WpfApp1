@@ -23,16 +23,7 @@ namespace WpfApp1
         public MainWindow()
         {
             InitializeComponent();
-        }
-
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            NavigationService.Navigate(new CustomersPage());
-        }
-
-        private void Button_Click_1(object sender, RoutedEventArgs e)
-        {
-            NavigationService.Navigate(new PortraitParamPage());
+            MainFrame.Content = new ButtonsPage();
         }
     }
 }

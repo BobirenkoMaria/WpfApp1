@@ -25,12 +25,12 @@ namespace WpfApp1
             InitializeComponent();
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void ToCustomersPage(object sender, RoutedEventArgs e)
         {
             NavigationService.Navigate(new CustomersPage());
         }
 
-        private void Button_Click_1(object sender, RoutedEventArgs e)
+        private void ToPortraitParamPage(object sender, RoutedEventArgs e)
         {
             NavigationService.Navigate(new PortraitParamPage());
         }

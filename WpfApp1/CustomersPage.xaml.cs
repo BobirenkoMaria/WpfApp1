@@ -24,5 +24,10 @@ namespace WpfApp1
         {
             InitializeComponent();
         }
+
+        private void ToMainMenu(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new ButtonsPage());
+        }
     }
 }
