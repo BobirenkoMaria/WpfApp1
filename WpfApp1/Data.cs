@@ -10,5 +10,7 @@ namespace WpfApp1
     static class Data
     {
         static public ObservableCollection<CustomersData> customers = new ObservableCollection<CustomersData>();
+        static public ObservableCollection<PrintOnCanvas> PrintOnCanvas = new ObservableCollection<PrintOnCanvas>();
+        static public ObservableCollection<MainParamPortrait> MainParamPortraits = new ObservableCollection<MainParamPortrait>();
     }
 }

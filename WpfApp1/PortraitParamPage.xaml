@@ -10,8 +10,9 @@
 
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="50*"/>
-            <ColumnDefinition Width="750*"/>
+            <ColumnDefinition Width="49*"/>
+            <ColumnDefinition Width="375*"/>
+            <ColumnDefinition Width="376"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="23*"/>
@@ -20,12 +21,11 @@
 
         <Button Content="Back" Click="ToMainMenu"/>
 
-        <StackPanel Margin="20 0" Grid.ColumnSpan="2" Grid.Row="1">
-            <Label Content="Ask this later"/>
-        </StackPanel>
+        <Button Content="MainPartraitParam" Click="ToMainPortraitParam" Grid.Column="2" Grid.Row="1" Margin="80,80,80,280"/>
+        <Button Content="Canvas" Click="ToCanvasParam" Grid.Column="1" Grid.Row="1" Margin="80,80,80,280"/>
 
-        <Border Margin="600,350,10,10" Grid.Column="1" Grid.Row="1">
-            
+        <Border Margin="144,350,151,10" Grid.Column="2" Grid.Row="1">
+
         </Border>
     </Grid>
 </Page>

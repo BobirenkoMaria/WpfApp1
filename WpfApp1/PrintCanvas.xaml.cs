@@ -16,19 +16,18 @@ using System.Windows.Shapes;
 namespace WpfApp1
 {
     /// <summary>
-    /// Логика взаимодействия для CustomersPage.xaml
+    /// Логика взаимодействия для PrintCanvas.xaml
     /// </summary>
-    public partial class CustomersPage : Page
+    public partial class PrintCanvas : Page
     {
-        public CustomersPage()
+        public PrintCanvas()
         {
             InitializeComponent();
-            DataContext = new CustomersViewModel();
         }
 
         private void ToMainMenu(object sender, RoutedEventArgs e)
         {
-            NavigationService.Navigate(new ButtonsPage());
+            NavigationService.Navigate(new PortraitParamPage());
         }
     }
 }

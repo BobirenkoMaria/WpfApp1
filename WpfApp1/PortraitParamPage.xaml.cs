@@ -29,5 +29,15 @@ namespace WpfApp1
         {
             NavigationService.Navigate(new ButtonsPage());
         }
+
+        private void ToMainPortraitParam(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new MainPortraitParam());
+        }
+
+        private void ToCanvasParam(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new PrintCanvas());
+        }
     }
 }
