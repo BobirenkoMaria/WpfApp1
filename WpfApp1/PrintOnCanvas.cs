@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace WpfApp1
 {
-    internal class PrintOnCanvas
+    public class PrintOnCanvas
     {
         public int Lenght { get; set; }
         public int Width { get; set; }

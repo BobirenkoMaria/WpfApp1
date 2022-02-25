@@ -1,6 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.ComponentModel;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -18,17 +21,41 @@ namespace WpfApp1
     /// <summary>
     /// Логика взаимодействия для CustomersPage.xaml
     /// </summary>
-    public partial class CustomersPage : Page
+    public partial class CustomersPage : Page, INotifyPropertyChanged
     {
         public CustomersPage()
         {
             InitializeComponent();
-            DataContext = new CustomersViewModel();
+            DataContext = this;
         }
 
-        private void ToMainMenu(object sender, RoutedEventArgs e)
+        private CustomersData selectedCustomer;
+
+        public ObservableCollection<CustomersData> Customers
         {
-            NavigationService.Navigate(new ButtonsPage());
+            get => Data.Customers;
+        }
+
+        public CustomersData SelectedCustomer
+        {
+            get => selectedCustomer;
+            set
+            {
+                selectedCustomer = value;
+                Signal();
+            }
+        }
+
+        void Signal([CallerMemberName] string name = null)
+        {
+            PropertyChanged?.Invoke(this,
+                      new PropertyChangedEventArgs(name));
+        }
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        private void ToStartPage(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new StartPage());
         }
     }
 }

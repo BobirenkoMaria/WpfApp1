@@ -18,14 +18,20 @@
             <RowDefinition Height="202*"/>
         </Grid.RowDefinitions>
 
-        <Button Content="Back" Click="ToMainMenu"/>
+        <Button Content="Back" Click="ToStartPage"/>
 
         <StackPanel Margin="20 0" Grid.ColumnSpan="2" Grid.Row="1"
-                    DataContext="">
+                    DataContext="{Binding SelectedCustomer}">
             <Label Content="ФИО"/>
-            <TextBox/>
-            <Label Content="Email, WhatsApp или номер телефона"/>
-            <TextBox/>
+            <TextBox Text="{Binding FIO}"/>
+            <Label Content="Email, WhatsApp"/>
+            <TextBox Text="{Binding ContactDetails}"/>
+            <Label Content="Дедлайн"/>
+            <DatePicker SelectedDate="{Binding DeadLine}"/>
+            <Label Content="Номер телефона"/>
+            <TextBox Text="{Binding PhoneNumber}"/>
+            <Label Content="Адрес доставки"/>
+            <TextBox Text="{Binding Delivery}"/>
         </StackPanel>
         <Border Margin="600,350,10,10" Grid.Column="1" Grid.Row="1"/>
     </Grid>

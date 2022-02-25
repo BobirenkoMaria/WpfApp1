@@ -10,8 +10,9 @@
 
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="50*"/>
-            <ColumnDefinition Width="750*"/>
+            <ColumnDefinition Width="16*"/>
+            <ColumnDefinition Width="113*"/>
+            <ColumnDefinition Width="413"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="23*"/>
@@ -20,19 +21,39 @@
 
         <Button Content="Back" Click="ToMainMenu"/>
 
-        <StackPanel Margin="20 0" Grid.ColumnSpan="2" Grid.Row="1"
-                    DataContext="">
+        <StackPanel Margin="20 0" Grid.Row="1"
+                    DataContext="{Binding SelectedOrder}"
+                    Grid.Column="0" Grid.ColumnSpan="2">
+            <Label Content="Основные параметры портрета" HorizontalAlignment="Center"/>
             <Label Content="Количество человек"/>
-            <TextBox/>
+            <TextBox Text="{Binding PeopleCount}"/>
             <Label Content="Цветовой оттенок"/>
             <Slider/>
             <Label Content="Замена одежды"/>
-            <CheckBox/>
+            <CheckBox IsChecked="{Binding ReplaceClothes}"/>
             <Label Content="Выбор фона"/>
             <ComboBox/>
             <Label Content="Добавить животных"/>
-            <CheckBox/>
+            <CheckBox IsChecked="{Binding Animals}"/>
+            
         </StackPanel>
-        <Border Margin="600,350,10,10" Grid.Column="1" Grid.Row="1"/>
+        <StackPanel Margin="20 0" Grid.Row="1"
+                    DataContext="{Binding SelectedOrder}" Grid.Column="2">
+            <Label Content="Параметры холста" HorizontalAlignment="Center"/>
+            <Label Content="Размер холста"/>
+            <StackPanel Orientation="Horizontal">
+                <TextBox Width="30"/>
+                <Label Content="x"/>
+                <TextBox Width="30"/>
+            </StackPanel>
+            <Label Content="Выбор холста"/>
+            <CheckBox IsChecked="{Binding CanvasChoose}"/>
+            <Label Content="Крепление"/>
+            <CheckBox IsChecked="{Binding Bracing}"/>
+            <Label Content="Подарочная упаковка"/>
+            <CheckBox IsChecked="{Binding GiftPackaging}"/>
+        </StackPanel>
+
+
     </Grid>
 </Page>

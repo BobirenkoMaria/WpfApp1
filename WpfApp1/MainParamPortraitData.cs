@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace WpfApp1
 {
-    internal class MainParamPortrait
+    public class MainParamPortraitData
     {
         public int PeopleCount { get; set; }
         public int ColorShade { get; set; }

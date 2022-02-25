@@ -19,22 +19,19 @@ using System.Windows.Shapes;
 namespace WpfApp1
 {
     /// <summary>
-    /// Логика взаимодействия для MainPortraitParam.xaml
+    /// Логика взаимодействия для StartPage.xaml
     /// </summary>
-    public partial class MainPortraitParam : Page, INotifyPropertyChanged
+    public partial class StartPage : Page, INotifyPropertyChanged
     {
-        public MainPortraitParam()
+        public StartPage()
         {
             InitializeComponent();
             DataContext = this;
         }
 
-        public MainPortraitParam(Orders selectedOrder)
+        public ObservableCollection<Orders> Orders
         {
-            InitializeComponent();
-            DataContext = this;
-            this.selectedOrder = selectedOrder;
-
+            get => Data.Orders;
         }
 
         private Orders selectedOrder;
@@ -49,6 +46,8 @@ namespace WpfApp1
             }
         }
 
+        public
+
         void Signal([CallerMemberName] string name = null)
         {
             PropertyChanged?.Invoke(this,
@@ -56,19 +55,34 @@ namespace WpfApp1
         }
         public event PropertyChangedEventHandler PropertyChanged;
 
-        public ObservableCollection<PrintOnCanvas> PrintOnCanvas 
+        private void OpenOrder(object sender, MouseButtonEventArgs e)
         {
-            get => Data.PrintOnCanvas;
+            NavigationService.Navigate(new MainPortraitParam(SelectedOrder));
         }
 
-        public ObservableCollection<MainParamPortraitData> mainParamPortraits
+        private void AddOrder(object sender, RoutedEventArgs e)
         {
-            get => Data.MainParamPortraits;
+            Orders.Add(new Orders
+            {
+                Title = "Новый заказ"
+            });
         }
 
-        private void ToMainMenu(object sender, RoutedEventArgs e)
+        private void DeleteOrder(object sender, RoutedEventArgs e)
         {
-            NavigationService.Navigate(new StartPage());
+            if (SelectedOrder == null)
+                return;
+            if (MessageBox.Show("Действительно удалить выбраный заказ?",
+                "Предупреждение", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
+            {
+                Orders.Remove(SelectedOrder);
+                SelectedOrder = null;
+            }
+        }
+
+        private void ToCustomersPage(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new CustomersPage());
         }
     }
 }

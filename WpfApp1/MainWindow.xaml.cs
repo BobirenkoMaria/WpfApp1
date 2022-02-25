@@ -23,7 +23,7 @@ namespace WpfApp1
         public MainWindow()
         {
             InitializeComponent();
-            MainFrame.Content = new ButtonsPage();
+            MainFrame.Content = new StartPage();
         }
     }
 }
