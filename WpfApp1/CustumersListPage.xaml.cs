@@ -19,29 +19,29 @@ using System.Windows.Shapes;
 namespace WpfApp1
 {
     /// <summary>
-    /// Логика взаимодействия для StartPage.xaml
+    /// Логика взаимодействия для CustumersListPage.xaml
     /// </summary>
-    public partial class StartPage : Page, INotifyPropertyChanged
+    public partial class CustumersListPage : Page, INotifyPropertyChanged
     {
-        public StartPage()
+        public CustumersListPage()
         {
             InitializeComponent();
             DataContext = this;
         }
 
-        public ObservableCollection<Orders> Orders
+        public ObservableCollection<CustomersData> Customers
         {
-            get => Data.Orders;
+            get => Data.Customers;
         }
 
-        private Orders selectedOrder;
+        private CustomersData selectedCustomer;
 
-        public Orders SelectedOrder
+        public CustomersData SelectedCustomer
         {
-            get => selectedOrder;
+            get => selectedCustomer;
             set
             {
-                selectedOrder = value;
+                selectedCustomer = value;
                 Signal();
             }
         }
@@ -53,34 +53,33 @@ namespace WpfApp1
         }
         public event PropertyChangedEventHandler PropertyChanged;
 
-        private void AddOrder(object sender, RoutedEventArgs e)
+        private void AddCustumer(object sender, RoutedEventArgs e)
         {
-            Orders.Add(new Orders
+            Customers.Add(new CustomersData
             {
-                Title = "Новый заказ"
+                FIO = "Ваше ФИО"
             });
         }
 
-        private void DeleteOrder(object sender, RoutedEventArgs e)
+        private void DeleteCustumer(object sender, RoutedEventArgs e)
         {
-            if (SelectedOrder == null)
+            if (SelectedCustomer == null)
                 return;
             if (MessageBox.Show("Действительно удалить выбраный заказ?",
                 "Предупреждение", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
             {
-                Orders.Remove(SelectedOrder);
-                SelectedOrder = null;
+                Customers.Remove(SelectedCustomer);
+                SelectedCustomer = null;
             }
         }
 
-        private void ToCustomersListPage(object sender, RoutedEventArgs e)
+        private void ToStartPage(object sender, RoutedEventArgs e)
         {
-            NavigationService.Navigate(new CustumersListPage());
+            NavigationService.Navigate(new StartPage());
         }
-
-        private void ToMainParam(object sender, MouseButtonEventArgs e)
+        private void ToCustomersPage(object sender, RoutedEventArgs e)
         {
-            NavigationService.Navigate(new MainPortraitParam(SelectedOrder));
+            NavigationService.Navigate(new CustomersPage(SelectedCustomer));
         }
     }
 }

@@ -56,14 +56,9 @@ namespace WpfApp1
         }
         public event PropertyChangedEventHandler PropertyChanged;
 
-        public ObservableCollection<PrintOnCanvas> PrintOnCanvas 
+        public ObservableCollection<Orders> Orders
         {
-            get => Data.PrintOnCanvas;
-        }
-
-        public ObservableCollection<MainParamPortraitData> mainParamPortraits
-        {
-            get => Data.MainParamPortraits;
+            get => Data.Orders;
         }
 
         private void ToMainMenu(object sender, RoutedEventArgs e)

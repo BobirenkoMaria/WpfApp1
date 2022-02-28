@@ -29,6 +29,13 @@ namespace WpfApp1
             DataContext = this;
         }
 
+        public CustomersPage(CustomersData selectedCustomer)
+        {
+            InitializeComponent();
+            DataContext = this;
+            SelectedCustomer = selectedCustomer;
+        }
+
         private CustomersData selectedCustomer;
 
         public ObservableCollection<CustomersData> Customers
@@ -53,9 +60,9 @@ namespace WpfApp1
         }
         public event PropertyChangedEventHandler PropertyChanged;
 
-        private void ToStartPage(object sender, RoutedEventArgs e)
+        private void ToCustomersList(object sender, RoutedEventArgs e)
         {
-            NavigationService.Navigate(new StartPage());
+            NavigationService.Navigate(new CustumersListPage());
         }
     }
 }

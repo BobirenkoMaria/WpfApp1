@@ -14,13 +14,13 @@
             <ColumnDefinition Width="751*"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition Height="23*"/>
-            <RowDefinition Height="202*"/>
+            <RowDefinition Height="29*"/>
+            <RowDefinition Height="421*"/>
         </Grid.RowDefinitions>
 
-        <Button Content="Back" Click="ToStartPage"/>
+        <Button Content="Back" Click="ToCustomersList"/>
 
-        <StackPanel Margin="20 0" Grid.ColumnSpan="2" Grid.Row="1"
+        <StackPanel Margin="20,0,20,0" Grid.ColumnSpan="2" Grid.Row="1"
                     DataContext="{Binding SelectedCustomer}">
             <Label Content="ФИО"/>
             <TextBox Text="{Binding FIO}"/>

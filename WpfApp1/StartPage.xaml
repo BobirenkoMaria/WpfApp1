@@ -12,7 +12,7 @@
         <ContextMenu x:Key="listMenu">
             <MenuItem Header="Добавить" Click="AddOrder"/>
             <MenuItem Header="Удалить" Click="DeleteOrder"/>
-            <MenuItem Header="Личная информация" Click="ToCustomersPage"/>
+            <MenuItem Header="Личная информация" Click="ToCustomersListPage"/>
         </ContextMenu>
     </Page.Resources>
 
@@ -21,13 +21,22 @@
             <RowDefinition Height="29*"/>
             <RowDefinition Height="421*"/>
         </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="2*"/>
+            <ColumnDefinition Width="10*"/>
+        </Grid.ColumnDefinitions>
 
-        <Label Content="Ваши заказы" HorizontalAlignment="Center"/>
-        <ListBox x:Name="listbox" Grid.Row="1"
-                 SelectedItem="{Binding SelectedOrder}"
+        <Button Content="Ваша информация" Click="ToCustomersListPage"/>
+
+        <Label Content="Ваши заказы" HorizontalAlignment="Center" Grid.Column="2"/>
+        <ListBox x:Name="listbox"
+        SelectedItem="{Binding SelectedOrder}"
                  ItemsSource="{Binding Orders}"
                  ContextMenu="{StaticResource listMenu}"
                  DisplayMemberPath="Title"
-                 MouseDoubleClick="OpenOrder"/>
+                 MouseDoubleClick="ToMainParam"
+                 Grid.ColumnSpan="2" Grid.Row="1"/>
+
+
     </Grid>
 </Page>
